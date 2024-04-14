@@ -16,6 +16,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+        unique_together = ('name', 'user')
 
 class Expense(models.Model):
     id = models.AutoField(primary_key=True)

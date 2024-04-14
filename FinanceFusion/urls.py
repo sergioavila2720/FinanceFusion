@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import ExpenseCRUDAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('members/', include('members.urls'))
+    path('members/', include('members.urls')),
+    path('expenses/', ExpenseCRUDAPIView.as_view(), name='expense_list'),
+    path('expenses/<int:id>/', ExpenseCRUDAPIView.as_view(), name='expense_detail'),
 ]
